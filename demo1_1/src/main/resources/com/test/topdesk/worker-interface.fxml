@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<TabPane fx:id="tabPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.test.topdesk.Controller.WorkerInterfaceController">
+
+    <tabs>
+        <Tab fx:id="manage" closable="false" text="管理菜单">
+            <content>
+                <TableView fx:id="menu" prefHeight="287" prefWidth="680" styleClass="table-view">
+                    <columns>
+                        <TableColumn prefWidth="40" text="编号">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="menuitemid" />
+                            </cellValueFactory>
+                        </TableColumn>
+
+                        <TableColumn prefWidth="100" text="菜名">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="itemname" />
+                            </cellValueFactory>
+                        </TableColumn>
+
+                        <TableColumn prefWidth="100" text="描述">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="description" />
+                            </cellValueFactory>
+                        </TableColumn>
+
+                        <TableColumn text="价格">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="price" />
+                            </cellValueFactory>
+                        </TableColumn>
+
+                        <TableColumn text="图片">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="imageurl" />
+                            </cellValueFactory>
+                        </TableColumn>
+
+
+                    </columns>
+                </TableView>
+
+
+
+
+            </content>
+
+        </Tab>
+        <Tab fx:id="accept" closable="false" text="接受订单">
+            <content>
+                <TableView fx:id="order" prefHeight="287" prefWidth="680" styleClass="table-view">
+                    <columns>
+                        <TableColumn prefWidth="60" text="订单编号">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="orderid" />
+                            </cellValueFactory>
+                        </TableColumn>
+
+                       <TableColumn prefWidth="120" text="送出时间">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="orderdate" />
+                            </cellValueFactory>
+                        </TableColumn>
+
+                        <TableColumn prefWidth="120" text="收货时间">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="deliverydate" />
+                            </cellValueFactory>
+                        </TableColumn>
+
+                        <TableColumn text="总价">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="price" />
+                            </cellValueFactory>
+                        </TableColumn>
+
+
+                    </columns>
+                </TableView>
+
+
+
+
+            </content>
+        </Tab>
+        <Tab fx:id="request" closable="false" text="请求送餐">
+            <Pane>
+            <children>
+               <ChoiceBox fx:id="choiceOrder" layoutX="244.0" layoutY="90.0" prefWidth="150.0" />
+               <ChoiceBox fx:id="choiceStaff" layoutX="244.0" layoutY="162.0" prefWidth="150.0" />
+               <Text layoutX="130.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" text="选择订单：" wrappingWidth="89.57354736328125">
+                  <font>
+                     <Font size="15.0" />
+                  </font>
+               </Text>
+               <Text layoutX="130.0" layoutY="179.0" strokeType="OUTSIDE" strokeWidth="0.0" text="选择派送员：">
+                  <font>
+                     <Font size="15.0" />
+                  </font>
+               </Text>
+               <Button layoutX="226.0" layoutY="264.0" mnemonicParsing="false" onAction="#commit" prefHeight="30.0" prefWidth="124.0" text="提交" />
+            </children></Pane>
+        </Tab>
+        <Tab fx:id="view" closable="false" text="查看销售情况">
+           <content>
+            <TableView fx:id="reviews" prefHeight="287" prefWidth="680" styleClass="table-view">
+                    <columns>
+                        <TableColumn prefWidth="60" text="评价编号">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="reviewid" />
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn prefWidth="60" text="用户编号">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="customerid" />
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn prefWidth="60" text="订单编号">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="orderid" />
+                            </cellValueFactory>
+                        </TableColumn>
+
+                       <TableColumn prefWidth="120" text="评分">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="rating" />
+                            </cellValueFactory>
+                        </TableColumn>
+
+                        <TableColumn prefWidth="300" text="评价">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="comment" />
+                            </cellValueFactory>
+                        </TableColumn>
+
+
+
+                    </columns>
+                </TableView>
+        </content>
+       </Tab>
+    </tabs>
+
+</TabPane>

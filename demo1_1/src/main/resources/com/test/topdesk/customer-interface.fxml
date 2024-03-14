@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<TabPane fx:id="tabPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.test.topdesk.Controller.CustomerInterfaceController">
+
+    <tabs>
+        <!-- 菜单查看区域 -->
+
+        <Tab closable="false" text="菜单查看">
+            <content>
+                <TableView fx:id="menu" prefHeight="287" prefWidth="680" styleClass="table-view">
+                    <columns>
+                        <TableColumn prefWidth="40" text="编号">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="menuitemid" />
+                            </cellValueFactory>
+                        </TableColumn>
+
+                        <TableColumn prefWidth="100" text="菜名">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="itemname" />
+                            </cellValueFactory>
+                        </TableColumn>
+
+                        <TableColumn prefWidth="200" text="描述">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="description" />
+                            </cellValueFactory>
+                        </TableColumn>
+
+                        <TableColumn text="价格">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="price" />
+                            </cellValueFactory>
+                        </TableColumn>
+
+                        <TableColumn text="图片">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="imageurl" />
+                            </cellValueFactory>
+                        </TableColumn>
+
+
+                    </columns>
+                </TableView>
+
+
+
+
+            </content>
+
+        </Tab>
+
+        <!-- 订餐区域 -->
+        <Tab closable="false" text="订餐">
+            <content>
+            <Pane>
+               <children>
+                      <TableView fx:id="order" prefHeight="287" prefWidth="680" styleClass="table-view">
+                          <columns>
+                              <TableColumn prefWidth="40" text="编号">
+                                  <cellValueFactory>
+                                      <PropertyValueFactory property="menuitemid" />
+                                  </cellValueFactory>
+                              </TableColumn>
+      
+                              <TableColumn prefWidth="100" text="菜名">
+                                  <cellValueFactory>
+                                      <PropertyValueFactory property="itemname" />
+                                  </cellValueFactory>
+                              </TableColumn>
+      
+                              <TableColumn prefWidth="200" text="描述">
+                                  <cellValueFactory>
+                                      <PropertyValueFactory property="description" />
+                                  </cellValueFactory>
+                              </TableColumn>
+      
+                              <TableColumn text="价格">
+                                  <cellValueFactory>
+                                      <PropertyValueFactory property="price" />
+                                  </cellValueFactory>
+                              </TableColumn>
+      
+                              <TableColumn text="图片">
+                                  <cellValueFactory>
+                                      <PropertyValueFactory property="imageurl" />
+                                  </cellValueFactory>
+                              </TableColumn>
+      
+      
+                          </columns>
+                      </TableView>
+                  <Button fx:id="GoToPay" layoutX="256.0" layoutY="308.0" mnemonicParsing="false" onAction="#GoForPay" prefHeight="26.0" prefWidth="72.0" text="前往支付" />
+               </children>
+            </Pane>
+            </content>
+        </Tab>
+
+        <!-- 支付区域 -->
+        <Tab fx:id="Pay" closable="false" text="支付">
+            <content>
+            <Pane>
+               <children>
+                       <ComboBox fx:id="paymentMethod" layoutX="288.0" layoutY="136.0" promptText="选择支付方式" />
+                       <Button fx:id="confirmPayment" layoutX="238.0" layoutY="267.0" onAction="#ConfirmPayment" prefHeight="45.0" prefWidth="101.0" text="确认支付" />
+                  <Text layoutX="134.0" layoutY="157.0" strokeType="OUTSIDE" strokeWidth="0.0" text="支付方式">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="150.0" layoutY="231.0" strokeType="OUTSIDE" strokeWidth="0.0" text="总价" wrappingWidth="70.0">
+                     <font>
+                        <Font size="28.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="307.0" layoutY="230.0" strokeType="OUTSIDE" strokeWidth="0.0" text="元">
+                     <font>
+                        <Font size="28.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="totalPrice" layoutX="235.0" layoutY="227.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="49.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="订单编号：" />
+                  <Text layoutX="49.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Note:" />
+                  <TextField fx:id="note" layoutX="106.0" layoutY="56.0" prefHeight="23.0" prefWidth="229.0" />
+                  <Text layoutX="49.0" layoutY="108.0" strokeType="OUTSIDE" strokeWidth="0.0" text="选择收货时间" />
+                  <ComboBox fx:id="time" layoutX="150.0" layoutY="92.0" promptText="选择时间" />
+                  <Text fx:id="oederId" layoutX="122.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+               </children>
+            </Pane>
+            </content>
+        </Tab>
+
+        <!-- 查看订单状态区域 -->
+        <Tab fx:id="states" closable="false" text="查看订单状态">
+            <content>
+                <TableView fx:id="orderstate" prefHeight="287" prefWidth="680" styleClass="table-view">
+                    <columns>
+                        <TableColumn prefWidth="60" text="订单编号">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="orderid" />
+                            </cellValueFactory>
+                        </TableColumn>
+
+                        <TableColumn prefWidth="60" text="送出时间">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="orderdate" />
+                            </cellValueFactory>
+                        </TableColumn>
+
+                        <TableColumn prefWidth="60" text="收货时间">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="deliverydate" />
+                            </cellValueFactory>
+                        </TableColumn>
+
+                        <TableColumn text="总价">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="totalamount" />
+                            </cellValueFactory>
+                        </TableColumn>
+
+                        <TableColumn text="状态">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="status" />
+                            </cellValueFactory>
+                        </TableColumn>
+
+
+                    </columns>
+                </TableView>
+
+
+
+
+            </content>
+        </Tab>
+
+        <!-- 写评价区域 -->
+        <Tab fx:id="evaluate" closable="false" text="写评价">
+            <content>
+            <Pane>
+               <children>
+                       <Button layoutX="252.0" layoutY="318.0" onAction="#commitComment" text="提交评价" />
+                       <TextArea fx:id="commentContent" layoutX="40.0" layoutY="125.0" promptText="评论内容" />
+                  <Label layoutX="59.0" layoutY="40.0" prefHeight="27.0" prefWidth="79.0" text="订单选择">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="59.0" layoutY="86.0" prefHeight="27.0" prefWidth="42.0" text="评分">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <ChoiceBox fx:id="orderId" layoutX="164.0" layoutY="42.0" prefWidth="150.0" />
+                  <CheckBox fx:id="one_point" layoutX="144.0" layoutY="91.0" mnemonicParsing="false" text="1分" />
+                  <CheckBox fx:id="two_point" layoutX="218.0" layoutY="92.0" mnemonicParsing="false" text="2分" />
+                  <CheckBox fx:id="three_point" layoutX="284.0" layoutY="92.0" mnemonicParsing="false" text="3分" />
+                  <CheckBox fx:id="four_point" layoutX="352.0" layoutY="92.0" mnemonicParsing="false" text="4分" />
+                  <CheckBox fx:id="five_point" layoutX="428.0" layoutY="92.0" mnemonicParsing="false" text="5分" />
+               </children>
+            </Pane>
+            </content>
+        </Tab>
+    </tabs>
+
+
+</TabPane>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.test.topdesk.Controller.FooddeliverystaffController">
+   <children>
+   <TableView fx:id="Table" prefHeight="400.0" prefWidth="600.0" styleClass="table-view">
+        <columns>
+            <TableColumn prefWidth="60" text="订单编号">
+                 <cellValueFactory>
+                       <PropertyValueFactory property="OrderId" />
+                 </cellValueFactory>
+            </TableColumn>
+
+            <TableColumn prefWidth="60" text="送出时间">
+                 <cellValueFactory>
+                       <PropertyValueFactory property="orderDate" />
+                 </cellValueFactory>
+            </TableColumn>
+
+            <TableColumn prefWidth="60" text="收货时间">
+                   <cellValueFactory>
+                        <PropertyValueFactory property="deliveryDate" />
+                   </cellValueFactory>
+            </TableColumn>
+
+            <TableColumn text="总价">
+                   <cellValueFactory>
+                         <PropertyValueFactory property="price" />
+                   </cellValueFactory>
+            </TableColumn>
+        </columns>
+    </TableView>
+   </children>
+
+</Pane>
